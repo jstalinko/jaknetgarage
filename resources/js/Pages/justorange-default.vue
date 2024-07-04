@@ -1,28 +1,32 @@
 <template>
     <div>
-
-<!-- Page Container -->
-<div class="flex items-center justify-center min-h-screen bg-white py-48">
-    <div class="flex flex-col">
-     
-
-        <!-- Error Container -->
-        <div class="flex flex-col items-center">
-            <div class="text-amber-500 font-bold text-7xl">
-                JustOrange 
-            </div>
-
-            <div class="font-bold text-3xl xl:text-7xl lg:text-6xl md:text-5xl mt-10">
-                StarterKit Full-Stack Development.
-            </div>
-
-            <div class="text-gray-400 font-medium text-sm md:text-xl lg:text-2xl mt-8">
-                Laravel + Filament + InertiaJS + VueJS + TailwindCSS
-            </div>
-        </div>
-
-    
-    </div>
-</div>
+        <header class="bg-gray-800 text-white py-4">
+            <nav class="container mx-auto flex justify-between items-center">
+                <div class="text-xl font-bold">JakNet Garage</div>
+                <ul class="flex space-x-4">
+                    <li><a href="#home" class="hover:text-gray-400">Beranda</a></li>
+                    <li><a href="#services" class="hover:text-gray-400">Layanan</a></li>
+                    <li><a href="#products" class="hover:text-gray-400">Sparepart</a></li>
+                    <li><a href="#contact" class="hover:text-gray-400">Kontak</a></li>
+                </ul>
+            </nav>
+        </header>
+        <HeroSection />
+        <ServicesSection />
+        <ProductsSection />
+        <PostsSection/>
+        <ContactSection />
+        <footer class="bg-gray-800 text-white text-center py-4">
+            <p>&copy; 2024 JakNet Garage. All rights reserved.</p>
+        </footer>
     </div>
 </template>
+
+<script setup>
+import HeroSection from './Components/HeroSection.vue';
+import ServicesSection from './Components/ServicesSection.vue';
+import ProductsSection from './Components/ProductsSection.vue';
+import ContactSection from './Components/ContactSection.vue';
+import PostsSection from './Components/PostsSection.vue';
+
+</script>
