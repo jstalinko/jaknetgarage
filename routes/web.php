@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [JustOrangeController::class , 'index']);
+Route::group(['prefix' => '/product'],function(){
+    Route::get('/' , [JustOrangeController::class, 'getProducts'])->name('products');
+    Route::get('/{slug}' , [JustOrangeController::class , 'getProductDetail'])->name('product.detail');
+});

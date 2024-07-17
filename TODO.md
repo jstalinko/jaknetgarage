@@ -1,0 +1,6 @@
+- search feature
+- footer sosmed
+- posts pages (index, detail)
+- add button tokopedia & shopee product serupa
+- about page
+- contact page
