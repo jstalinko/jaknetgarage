@@ -61,37 +61,12 @@ class JustOrangeController extends Controller
     public function getProducts(Request $request): \Inertia\Response
     {
         $filter = ($request->get('filter')) ? $request->get('filter') : 'all';
-        switch ($filter) {
-            case 'all':
-                $product =  Product::where('active', true)->orderBy('created_at', 'desc')->with('category')->get();
-                break;
-            case 'new':
-                $product = Product::where('active', true)->orderBy('id', 'desc')->with('category')->get();
-                break;
-            case 'populer':
-                $product =  Product::where('active', true)->orderBy('views', 'desc')->with('category')->get();
-                break;
-            case 'desc_harga':
-                $product =  Product::where('active', true)->orderBy('price', 'desc')->with('category')->get();
-                break;
-            case 'asc_harga':
-                $product =  Product::where('active', true)->orderBy('price', 'asc')->with('category')->get();
-                break;
-            case 'category':
-                $product = Product::where('active',true)->where('category_id',$request->get('cat'))->with('category')->get();
-                break;
-            case 'search':
-                $query = $request->get('query');
-                $product = Product::where('active',true)->where('title','LIKE',"%$query%")->orWhere('content','LIKE',"%$query%")->with('category')->get();
-                break;
-            default:
-                $product =  Product::where('active', true)->orderBy('id', 'desc')->with('category')->get();
-                break;
-        }
+        $product = Product::filter(request(['filter','cat','q']))->with('category')->get();
         $props['categories'] = Category::where('active',true)->get();
         $props['products'] =$product;
         $props['globals'] = $this->global;
         $props['filter'] = $filter;
+        $props['filter_query'] = request('q') ?? false;
 
         $data['props'] = $props;
         return Inertia::render('Products/index', $data);

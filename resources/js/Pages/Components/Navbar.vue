@@ -128,7 +128,7 @@ const query = ref('');
 
 const doSearch = async() => {
     if(query.value == '') return;
-    router.visit('/products?filter=search&q='+query.value,{preserveScroll:true});
+    router.visit('/product?filter=search&q='+query.value,{preserveScroll:true});
 }
 
 const toggleSearch = () => {
