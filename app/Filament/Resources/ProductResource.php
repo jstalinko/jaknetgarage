@@ -17,15 +17,16 @@ class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
+
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('category_id')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('category_id')->relationship('category','name')
+                    ->required()->native(false),
                 Forms\Components\TextInput::make('name')
                     ->required(),
                 Forms\Components\Textarea::make('description')
@@ -51,25 +52,29 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category_id')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('category.name')
+                    ->sortable()->badge(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
-                    ->money()
+                    ->money('IDR')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
+               
                 Tables\Columns\TextColumn::make('views')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('shopee_url')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('tokopedia_url')
-                    ->searchable(),
+             
                 Tables\Columns\IconColumn::make('active')
                     ->boolean(),
+                    Tables\Columns\TextColumn::make('slug')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                    Tables\Columns\TextColumn::make('shopee_url')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('tokopedia_url')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

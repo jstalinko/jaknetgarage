@@ -80,6 +80,10 @@ class JustOrangeController extends Controller
             case 'category':
                 $product = Product::where('active',true)->where('category_id',$request->get('cat'))->with('category')->get();
                 break;
+            case 'search':
+                $query = $request->get('query');
+                $product = Product::where('active',true)->where('title','LIKE',"%$query%")->orWhere('content','LIKE',"%$query%")->with('category')->get();
+                break;
             default:
                 $product =  Product::where('active', true)->orderBy('id', 'desc')->with('category')->get();
                 break;
