@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [JustOrangeController::class , 'index']);
 Route::group(['prefix' => '/product'],function(){
-    Route::get('/' , [JustOrangeController::class, 'getProducts'])->name('products');
+Route::get('/' , [JustOrangeController::class, 'getProducts'])->name('products');
     Route::get('/{slug}' , [JustOrangeController::class , 'getProductDetail'])->name('product.detail');
 });
+Route::group(['prefix' => '/post'] , function(){
+    Route::get('/',[JustOrangeController::class , 'getPosts'])->name('posts');
+    Route::get('/{id}' , [JustOrangeController::class , 'getPostDetail'])->name('post.detail');
+});
+Route::get('/about' , [JustOrangeController::class , 'getAbout'])->name('about');
+Route::get('/contact' , [JustOrangeController::class , 'getContact'])->name('contact');

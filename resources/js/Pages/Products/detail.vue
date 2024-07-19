@@ -109,7 +109,7 @@
             </div>
         </div>
 
-        <Footer/>
+        <Footer :Pages="props.posts" :Socmed="props.globals.settings.sosmed"/>
     </div>
 </template>
 

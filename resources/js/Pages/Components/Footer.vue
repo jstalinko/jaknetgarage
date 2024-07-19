@@ -6,17 +6,17 @@
 				<nav>
 					<h5 class="font-bold text-2xl text-slate-500 mb-8">Produk Kami</h5>
 					<ul class="flex flex-col gap-3">
-						<li><Link href="/products?filter=all">Semua Produk</Link> </li>
-						<li><Link href="/products?filter=populer">Produk Terlaris</Link></li>
-						<li><Link href="/products?filter=new">Produk Terbaru</Link></li>
+						<li><Link href="/product?filter=all">Semua Produk</Link> </li>
+						<li><Link href="/product?filter=populer">Produk Terlaris</Link></li>
+						<li><Link href="/product?filter=new">Produk Terbaru</Link></li>
 					</ul>
 				</nav>
 
 				<nav>
-					<h5 class="font-bold text-2xl text-slate-500 mb-8">HALAMAN</h5>
+					<h5 class="font-bold text-2xl text-slate-500 mb-8">Artikel</h5>
 					<ul class="flex flex-col gap-3">
-						<li><Link href="/about-us">Tentang Kami</Link></li>
-						<li><Link href="/linker">Hubungi Kami</Link></li>
+						<li v-for="(post,index) in Pages.slice(0,5)" :key="index"><Link :href="`/post/${post.id}`">{{ post.title }}</Link></li>
+						
 						
 					</ul>
 				</nav>
@@ -24,8 +24,18 @@
 				
 				<nav>
 					<h5 class="font-bold text-2xl text-slate-500 mb-8">SOCIAL MEDIA</h5>
-					<div class="flex gap-5 mb-3">
-						<a target="_blank"  :class="classNames[sos.type]"  v-for="(sos,index) in Socmed" :href="sos.link"><i :class="icons[sos.type]"></i> </a>
+					<div class="flex flex-col gap-5 mb-3">
+						<a target="_blank"    v-for="(sos,index) in Socmed" :href="sos" :key="index">
+							<span v-if="sos.includes('facebook')" class="bg-blue-500 text-white p-2 rounded">
+								<i class="mdi mdi-facebook"></i> Facebook
+							</span>
+							<span v-if="sos.includes('wa')" class="bg-green-500 text-white p-2 rounded">
+								<i class="mdi mdi-whatsapp"></i> Whatsapp
+							</span>
+							<span v-if="sos.includes('instagram')" class="bg-red-500 text-white p-2 rounded">
+								<i class="mdi mdi-instagram"></i> Instagram
+							</span>
+						</a>
 					</div>
 					<p class="text-lg max-w-sm">
 						Jangan ragu untuk berkonsultasi dan tanya kami! 
@@ -36,7 +46,7 @@
 
 			<div class="bg-white flex justify-center gap-10 py-3 font-bold text-xs">
 				
-				<span>IA PROPERTY &copy; {{new Date().getFullYear()}}. All rights reserved. </span>
+				<span>JAKNET GARAGE &copy; {{new Date().getFullYear()}}. All rights reserved. </span>
 			</div>
 		</footer>
     </div>

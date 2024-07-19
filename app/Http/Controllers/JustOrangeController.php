@@ -19,38 +19,21 @@ class JustOrangeController extends Controller
         $this->global['base_url'] = url('/');
         $this->global['no_whatsapp'] = env('NO_WHATSAPP');
         $this->global['wa_message'] = env('WA_MESSAGE');
+        $this->global['settings'] = json_decode(file_get_contents(storage_path('app/settings.json')) ,true);
     }
     public function index(Request $request): \Inertia\Response
     {
         $filter = ($request->get('filter')) ? $request->get('filter') : null;
-        switch ($filter) {
-            case 'all':
-                $product =  Product::where('active', true)->orderBy('created_at', 'desc')->take(8)->with('category')->get();
-                break;
-            case 'new':
-                $product = Product::where('active', true)->orderBy('id', 'desc')->take(8)->with('category')->get();
-                break;
-            case 'populer':
-                $product =  Product::where('active', true)->orderBy('views', 'desc')->take(8)->with('category')->get();
-                break;
-            case 'desc_harga':
-                $product =  Product::where('active', true)->orderBy('price', 'desc')->take(8)->with('category')->get();
-                break;
-            case 'asc_harga':
-                $product =  Product::where('active', true)->orderBy('price', 'asc')->take(8)->with('category')->get();
-                break;
-            default:
-                $product =  Product::where('active', true)->orderBy('id', 'desc')->take(8)->with('category')->get();
-                break;
-        }
+        $product = Product::filter(request(['filter','q','cat']))->with('category')->take(8)->get();
 
-        $props['posts'] = Post::where('active', true)->orderBy('id', 'desc')->take(8)->get();
+        $props['posts'] = Post::where('active', true)->orderBy('id', 'desc')->take(9)->get();
         $props['categories'] = Category::where('active', true)->orderBy('id', 'desc')->get();
         $props['services'] = Service::all();
         $props['testimonials'] = Testimonial::take(6)->get();
         $props['products'] = $product;
         $props['globals'] = $this->global;
         $props['filter'] = $filter;
+        
 
 
         $data['props'] = $props;
@@ -66,7 +49,8 @@ class JustOrangeController extends Controller
         $props['products'] =$product;
         $props['globals'] = $this->global;
         $props['filter'] = $filter;
-        $props['filter_query'] = request('q') ?? false;
+        $props['filter_query'] = request('q') ?? null;
+        $props['posts'] = Post::where('active',true)->get();
 
         $data['props'] = $props;
         return Inertia::render('Products/index', $data);
@@ -77,8 +61,41 @@ class JustOrangeController extends Controller
         $props['products'] = Product::where('category_id' , $props['product']->category_id)->where('active',true)->with('category')->take(6)->get();
         $props['globals'] = $this->global;
         $props['categories'] = Category::where('active',true)->get();
+        $props['posts'] = Post::where('active',true)->get();
         
         $data['props'] = $props;
         return Inertia::render('Products/detail', $data);
+    }
+
+    public function getAbout(): \Inertia\Response
+    {
+        $data['props'] = '';
+        return Inertia::render('about',$data);
+    }
+    public function getContact(): \Inertia\Response
+    {
+        $props['settings'] = json_decode(file_get_contents(storage_path('app/settings.json')) , true);
+
+        $data['props'] = $props;
+        return Inertia::render('contact',$data);
+    }
+
+    public function getPosts(): \Inertia\Response
+    {
+        $props['globals'] = $this->global;
+        $props['posts'] = Post::where('active',true)->get();
+        $props['categories'] = Category::where('active',true)->get();
+        $data['props'] = $props;
+        return Inertia::render('Posts/index', $data);
+    }
+
+    public function getPostDetail(Request $request): \Inertia\Response
+    {
+        $props['post'] = Post::find($request->id);
+        $props['categories'] = Category::where('active',true)->get();
+        $props['globals'] = $this->global;
+
+        $data['props'] = $props;
+        return Inertia::render('Posts/detail',$data);
     }
 }

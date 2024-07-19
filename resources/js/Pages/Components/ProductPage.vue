@@ -65,7 +65,7 @@
             </div>
             <a :href="helpers.WaButton(Global,'/product/'+product.slug)" class="bg-amber-500 px-8 py-2 rounded-full text-gray-600 font-bold text-center hover:bg-amber-600 hover:text-white uppercase text-xs md:text-lg" target="_blank"><i class="mdi mdi-whatsapp"></i> Pesan </a>
 
-         <div class="flex items-center justify-between">
+         <div class="flex items-center flex-col md:justify-between md:flex-row gap-1">
           <a :href="product.shopee_url" class="bg-yellow-500 px-8 py-2 rounded-full text-gray-100 font-bold text-center hover:bg-yellow-600 hover:text-white uppercase text-xs md:text-lg" target="_blank">SHOPEE</a>
             
             <a :href="product.tokopedia_url" class="bg-green-500 px-8 py-2 rounded-full text-gray-100 font-bold text-center hover:bg-green-600 hover:text-white uppercase text-xs md:text-lg" target="_blank">TOKOPEDIA</a>
@@ -75,7 +75,7 @@
         </div>
       </div>
       <div class="flex justify-center" v-show="Filter==null">
-        <Link href="/products?filter=all" class="bg-white border-2 p-2 rounded-full text-gray-600  hover:border-gray-600 mt-10"><i class="mdi mdi-view-list"></i> Tampilkan Semua</Link>
+        <Link href="/product?filter=all" class="bg-white border-2 p-2 rounded-full text-gray-600  hover:border-gray-600 mt-10"><i class="mdi mdi-view-list"></i> Tampilkan Semua</Link>
         
       </div>
     </section>

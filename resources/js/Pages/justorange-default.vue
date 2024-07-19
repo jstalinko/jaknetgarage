@@ -1,5 +1,5 @@
 <template>
-	<JustHead :Global="Global" />
+	<JustHead :Global="props.globals" />
 	<div>
 		<Navbar :Categories="props.categories" />
 
@@ -40,12 +40,12 @@
 		</div>
 		<Services :Services="props.services" />
 		<ProductPage :Products="props.products" :HeadTitle="HeadTitle" :Filter="props.filter" :Global="props.globals" :FilterQuery="props?.filter_query"/>
-
+		<PostPage :Posts="props.posts" />
 		<Testimonial :Testimonials="props.testimonials" />
 
 	
 
-		<Footer :Global="Global" :Socmed="Socmed" :Pages="Pages" />
+		<Footer :Global="props.globals" :Socmed="props.globals.settings.sosmed" :Pages="props.posts" />
 	</div>
 </template>
 
@@ -58,6 +58,7 @@ import ProductPage from './Components/ProductPage.vue';
 import Footer from './Components/Footer.vue';
 import JustHead from './Components/JustHead.vue';
 import {Link} from '@inertiajs/vue3';
+import PostPage from './Components/PostPage.vue';
 
 defineProps({ ProductsRecommended:Object,
 			  Products: Object, 

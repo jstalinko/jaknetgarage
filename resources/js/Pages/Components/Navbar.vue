@@ -34,7 +34,7 @@
                 <Link href="/">Beranda</Link>
             </li>
             <li class="hover:text-[#FEC43C]">
-                <Link href="/products">Layanan</Link>
+                <Link href="/#serviceSection">Layanan</Link>
             </li>
             <li class="relative hover:text-[#FEC43C]">
                 <button id="dropdownButton" @click="toggleDropdown" type="button" aria-expanded="true" aria-haspopup="true">
@@ -48,10 +48,10 @@
                 </div>
             </li>
             <li class="hover:text-[#FEC43C]">
-                <Link href="/linker">Hubungi</Link>
+                <Link href="/contact">Hubungi</Link>
             </li>
             <li class="hover:text-[#FEC43C]">
-                <Link href="/p/about-us">Tentang</Link>
+                <Link href="/about">Tentang</Link>
             </li>
         </ul>
     </nav>
@@ -71,30 +71,30 @@
                 <i class="mdi mdi-home-outline"></i>
                 <span class="text-xs">Beranda</span>
             </a>
-            <a href="/products" class="flex flex-col items-center hover:text-black">
+            <a href="/product" class="flex flex-col items-center hover:text-black">
                 <i class="mdi mdi-cube-outline"></i>
                 <span class="text-xs">Produk</span>
             </a>
             <div class="relative" @click="toggleDropdown">
                 <a class="flex flex-col items-center hover:text-black">
                     <i class="mdi mdi-tag-multiple"></i>
-                    <span class="text-xs">Kategori</span>
+                    <span class="text-xs">Suku Cadang</span>
                 </a>
                 <div v-if="isOpen" class="absolute bottom-12 w-screen bg-white  rounded-lg">
                     <ul class="flex flex-col justify-center p-3 ">
                         <li v-for="(category,index) in Categories" :key="index" class="py-1">
-                            <Link :href="`/category/${category.id}`" class="text-black hover:text-amber-600">
+                            <Link :href="'/product?filter=category&cat='+category.id" class="text-black hover:text-amber-600">
                                 {{ category.name }}
                             </Link>
                         </li>
                     </ul>
                 </div>
             </div>
-            <a href="/linker" class="flex flex-col items-center hover:text-black">
+            <a href="/contact" class="flex flex-col items-center hover:text-black">
                 <i class="mdi mdi-phone-outline"></i>
                 <span class="text-xs">Hubungi</span>
             </a>
-            <a href="/p/about-us" class="flex flex-col items-center hover:text-black">
+            <a href="/about" class="flex flex-col items-center hover:text-black">
                 <i class="mdi mdi-information-outline"></i>
                 <span class="text-xs">Tentang</span>
             </a>
@@ -104,7 +104,7 @@
 <div class="fixed top-0 left-0 right-0 bg-white shadow-md p-2 z-50 block md:hidden">
     <div class="flex justify-between space-x-4">
         <div class="flex space-x-2">
-            <img src="/logo.jpg" class="w-10"> <h1 class="text-xl poppins-bold mt-2">IA PROJECT</h1>
+           <h1 class="text-xl poppins-bold mt-2">JAKNET GARAGE</h1>
         </div>
       
     </div>
