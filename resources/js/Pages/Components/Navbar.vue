@@ -5,7 +5,7 @@
         <br>
         <div class="relative w-full max-w-screen-md">
             <div class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-gray-600 poppins-bold animate-pulse">JAKNET GARAGE</h1>
+            <h1 class="text-4xl font-bold text-gray-600 poppins-bold animate-pulse">GTMOTOMINDS</h1>
         </div>
         <div>
             <input
@@ -24,7 +24,7 @@
     </div>
     <header class="flex justify-between items-center p-3 px-4">
         <div class="flex items-center gap-2">
-            <span class="font-bold text-xl text-gray-700 poppins-bold">JAKNET GARAGE</span>
+            <span class="font-bold text-xl text-gray-700 poppins-bold">GTMOTOMINDS</span>
 
         </div>
 

@@ -46,7 +46,7 @@
 
 			<div class="bg-white flex justify-center gap-10 py-3 font-bold text-xs">
 				
-				<span>JAKNET GARAGE &copy; {{new Date().getFullYear()}}. All rights reserved. </span>
+				<span>GTMOTOMINDS &copy; {{new Date().getFullYear()}}. All rights reserved. </span>
 			</div>
 		</footer>
     </div>
