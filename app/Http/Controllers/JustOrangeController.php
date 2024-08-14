@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Inertia\Inertia;
+use App\Models\Contact;
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\Category;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class JustOrangeController extends Controller
 {
@@ -69,12 +71,18 @@ class JustOrangeController extends Controller
 
     public function getAbout(): \Inertia\Response
     {
-        $data['props'] = '';
+        $props['settings'] = json_decode(file_get_contents(storage_path('app/settings.json')) , true);
+        $props['categories'] = Category::where('active',true)->get();
+        $props['globals'] = $this->global;
+
+        $data['props'] = $props;
         return Inertia::render('about',$data);
     }
     public function getContact(): \Inertia\Response
     {
         $props['settings'] = json_decode(file_get_contents(storage_path('app/settings.json')) , true);
+        $props['categories'] = Category::where('active',true)->get();
+        $props['globals'] = $this->global;
 
         $data['props'] = $props;
         return Inertia::render('contact',$data);
@@ -97,5 +105,19 @@ class JustOrangeController extends Controller
 
         $data['props'] = $props;
         return Inertia::render('Posts/detail',$data);
+    }
+
+    public function submitContact(Request $request): JsonResponse
+    {
+        $req = $request->json()->all();
+        $contact = new Contact();
+        $contact->name = $req['nama'];
+        $contact->email = $req['email'];
+        $contact->phone = $req['whatsapp'];
+        $contact->title = $req['judul'];
+        $contact->message = $req['pesan'];
+        $contact->save();
+
+        return response()->json(['success' => true] , 200,[] , JSON_PRETTY_PRINT);
     }
 }

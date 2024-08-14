@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'admin@admin.com',
         //     'password' => bcrypt('password')
         // ]);
-        // $this->call(ServicesTableSeeder::class);
+        $this->call(ServicesTableSeeder::class);
 
-        // \App\Models\Category::factory(10)->create();
-        // \App\Models\Product::factory(100)->create();
-        // \App\Models\Post::factory(20)->create();
-        \App\Models\Testimonial::factory(10)->create();
+        \App\Models\Category::factory(10)->create();
+        \App\Models\Product::factory(100)->create();
+        \App\Models\Post::factory(20)->create();
+       \App\Models\Testimonial::factory(10)->create();
     }
 }
