@@ -104,7 +104,7 @@
 <div class="fixed top-0 left-0 right-0 bg-white shadow-md p-2 z-50 block md:hidden">
     <div class="flex justify-between space-x-4">
         <div class="flex space-x-2">
-           <h1 class="text-xl poppins-bold mt-2">JAKNET GARAGE</h1>
+           <h1 class="text-xl poppins-bold mt-2">GTMOTOMINDS</h1>
         </div>
       
     </div>
