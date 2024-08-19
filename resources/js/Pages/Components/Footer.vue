@@ -23,7 +23,10 @@
 
 				
 				<nav>
-					<h5 class="font-bold text-2xl text-slate-500 mb-8">SOCIAL MEDIA</h5>
+					<h5 class="font-bold text-2xl text-slate-500 mb-8">HUBUNGI KAMI</h5>
+					<p class="text-lg max-w-sm">
+						<div v-html="Global.settings.address"></div>
+					</p>
 					<div class="flex flex-col gap-5 mb-3">
 						<a target="_blank"    v-for="(sos,index) in Socmed" :href="sos" :key="index">
 							<span v-if="sos.includes('facebook')" class="bg-blue-500 text-white p-2 rounded">

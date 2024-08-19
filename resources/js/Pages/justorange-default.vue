@@ -22,7 +22,7 @@
 
 
 					<div class="mt-5 px-32"><br>
-					<Link href="/products" class="bg-amber-400 p-3 rounded text-gray-600 hover:bg-amber-600 mt-5">Belanja sekarang!</Link>
+					<Link href="/product" class="bg-amber-400 p-3 rounded text-gray-600 hover:bg-amber-600 mt-5">Belanja sekarang!</Link>
 					</div>
 					
 				</div>

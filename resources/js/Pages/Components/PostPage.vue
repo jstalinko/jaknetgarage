@@ -24,7 +24,7 @@
             <swiper :modules="modules" :slides-per-view="3" :space-between="10" navigation
                 :scrollbar="{ draggable: true }"  :mousewheel="true" :autoplay="{delay: 5000}">
                 <swiper-slide v-for="post in Posts" :key="post.id" class="bg-white rounded-lg border-2 overflow-hidden">
-                    <img :src="post.image" :alt="post.title" class="w-full h-48 object-cover">
+                    <img :src="helpers.imageUrl(post.image)" :alt="post.title" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <Link :href="`/post/${post.id}`">
                         <h3 class="text-xl font-bold text-gray-800">{{ post.title }}</h3>
@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref , inject } from 'vue'
 import { Link } from '@inertiajs/vue3';
 // Import Swiper styles
 import 'swiper/css';
@@ -54,7 +54,7 @@ import 'swiper/css/mousewheel';
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay , Mousewheel } from 'swiper/modules';
-
+const helpers = inject('helpers');
 const modules = [Navigation, Pagination, Scrollbar, A11y, Autoplay , Mousewheel];
 defineProps({ Posts: Object })
 </script>

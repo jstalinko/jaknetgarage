@@ -61,7 +61,7 @@
            
             <div class="flex flex-col md:flex-row md:justify-between">
               <b class="text-sm mt-2">{{ product.price == 0 ? 'Tanya Admin' : helpers.rupiah(product.price) }}</b>
-              <span class="text-sm mt-2"><i class="mdi mdi-tag"></i> {{ product.category.name }}</span>
+              <span class="text-sm mt-2"><i class="mdi mdi-tag"></i> {{ product.category?.name ?? 'Tidak ada kategori' }}</span>
             </div>
             <a :href="helpers.WaButton(Global,'/product/'+product.slug)" class="bg-amber-500 px-8 py-2 rounded-full text-gray-600 font-bold text-center hover:bg-amber-600 hover:text-white uppercase text-xs md:text-lg" target="_blank"><i class="mdi mdi-whatsapp"></i> Pesan </a>
 
