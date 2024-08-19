@@ -49,7 +49,7 @@
 
 			<div class="bg-white flex justify-center gap-4 py-3 font-bold text-xs">
 				
-				<span>GTMOTOMINDS &copy; {{new Date().getFullYear()}} All rights reserved.</span>| <a href="sitemap.xml">Sitemap</a>
+				<span>GTMOTOMINDS &copy; {{new Date().getFullYear()}} All rights reserved.</span>| <a href="{{url('sitemap.xml')}}">Sitemap</a>
 			</div>
 		</footer>
     </div>
