@@ -5,7 +5,7 @@
         <br><br>
         <ProductPage :Products="props.products"  :Filter="props.filter" :HeadTitle="HeadTitle" :Global="props.globals" :FilterQuery="props.filter_query"  />
         
-        <Footer :Socmed="props.globals.settings.sosmed" :Pages="props.posts"/>
+        <Footer :Socmed="props.globals.settings.sosmed" :Pages="props.posts" :Global="props.globals"/>
 
     </div>
 </template>

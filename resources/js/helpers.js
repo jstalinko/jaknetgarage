@@ -45,6 +45,8 @@ export default {
         if(string !== undefined) return string.replace(/(<([^>]+)>)/gi, "");
     },
     WaButton: function(Global,path){
+
+      //  console.log(Global);
         let waHttp = "https://wa.me/";
         let number = Global?.no_whatsapp ?? '081234567890';
         let text = Global?.wa_message ?? 'Hello';

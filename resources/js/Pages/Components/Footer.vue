@@ -24,7 +24,7 @@
 				
 				<nav>
 					<h5 class="font-bold text-2xl text-slate-500 mb-8">HUBUNGI KAMI</h5>
-					<p class="text-lg max-w-sm">
+					<p class="text-lg max-w-sm mb-4">
 						<div v-html="Global.settings.address"></div>
 					</p>
 					<div class="flex flex-col gap-5 mb-3">
@@ -47,9 +47,9 @@
 				</nav>
 			</div>
 
-			<div class="bg-white flex justify-center gap-10 py-3 font-bold text-xs">
+			<div class="bg-white flex justify-center gap-4 py-3 font-bold text-xs">
 				
-				<span>GTMOTOMINDS &copy; {{new Date().getFullYear()}}. All rights reserved. </span>
+				<span>GTMOTOMINDS &copy; {{new Date().getFullYear()}} All rights reserved.</span>| <a href="sitemap.xml">Sitemap</a>
 			</div>
 		</footer>
     </div>

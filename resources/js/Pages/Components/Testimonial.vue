@@ -1,7 +1,7 @@
 <template>
-    <div class="hidden md:block">
+  
         <section class="flex flex-col items-center bg-accent pt-20 pb-56 relative">
-            <h2 class="text-8xl text-gray-500 text-shadow-custom text-center mb-10 poppins-bold">
+            <h2 class="text-xl md:text-8xl text-gray-500 text-shadow-custom text-center mb-10 poppins-bold">
                 Testimoni
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 bg-[#eeeeee] px-10 pt-10 pb-72 w-3/4">
@@ -31,7 +31,7 @@
                 <img src="/assets/images/bg-testimonials.png" alt="" />
             </div>
         </section>
-    </div>
+    
 </template>
 
 <script setup>

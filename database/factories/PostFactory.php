@@ -20,6 +20,7 @@ class PostFactory extends Factory
             'title' =>  fake()->sentence(),
             'image' => 'https://placehold.co/600x400?text=No+Image',
             'content' => fake()->paragraph(10),
+            'slug' => fake()->slug(),
             'active'=>true
         ];
     }

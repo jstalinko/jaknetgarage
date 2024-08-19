@@ -50,6 +50,10 @@ class Setting extends Component implements HasForms
                 \Filament\Forms\Components\TextInput::make('sosmed.facebook_url'),
                 \Filament\Forms\Components\TextInput::make('sosmed.instagram_url'),
                 \Filament\Forms\Components\TextInput::make('sosmed.whatsapp_url')
+            ]),
+            \Filament\Forms\Components\Section::make('Tombol Pesan')->schema([
+                \Filament\Forms\Components\TextInput::make('no_whatsapp'),
+                \Filament\Forms\Components\Textarea::make('wa_message'),
             ])
 
         ])->statePath('data');

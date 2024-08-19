@@ -24,16 +24,17 @@ class PostResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->required(),
-                Forms\Components\Textarea::make('content')
+                    ->required()
+                    ->columnSpanFull(),
+                Forms\Components\RichEditor::make('content')
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('active')
                     ->required(),
-                Forms\Components\TextInput::make('slug'),
             ]);
     }
 

@@ -21,7 +21,7 @@ Route::get('/' , [JustOrangeController::class, 'getProducts'])->name('products')
 });
 Route::group(['prefix' => '/post'] , function(){
     Route::get('/',[JustOrangeController::class , 'getPosts'])->name('posts');
-    Route::get('/{id}' , [JustOrangeController::class , 'getPostDetail'])->name('post.detail');
+    Route::get('/{slug}' , [JustOrangeController::class , 'getPostDetail'])->name('post.detail');
 });
 Route::get('/about' , [JustOrangeController::class , 'getAbout'])->name('about');
 Route::get('/contact' , [JustOrangeController::class , 'getContact'])->name('contact');

@@ -3,8 +3,9 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-start mb-10 border-b-2 border-gray-600 w-3/12">
                 <h2
-                    class="text-secondary text-3xl text-center md:text-left md:text-4xl mb-5 md:mb-0 poppins-bold uppercase">
-                    <i class="mdi mdi-newspaper"></i> Artikel Terbaru</h2>
+                    class="text-secondary text-xl  text-center md:text-left md:text-4xl mb-5 md:mb-0 poppins-bold uppercase">
+                    <i class="mdi mdi-newspaper"></i> Artikel Terbaru
+                </h2>
             </div>
             <!-- <swiper
           :modules="[Navigation, Pagination]"
@@ -22,11 +23,28 @@
           </swiper-slide>
         </swiper> -->
             <swiper :modules="modules" :slides-per-view="3" :space-between="10" navigation
-                :scrollbar="{ draggable: true }"  :mousewheel="true" :autoplay="{delay: 5000}">
+                :scrollbar="{ draggable: true }" :mousewheel="true" :autoplay="{ delay: 5000 }" :breakpoints="{
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                    }
+                }">
                 <swiper-slide v-for="post in Posts" :key="post.id" class="bg-white rounded-lg border-2 overflow-hidden">
                     <img :src="helpers.imageUrl(post.image)" :alt="post.title" class="w-full h-48 object-cover">
                     <div class="p-4">
-                        <Link :href="`/post/${post.id}`">
+                        <Link :href="`/post/${post.slug}`">
                         <h3 class="text-xl font-bold text-gray-800">{{ post.title }}</h3>
                         </Link>
                         <p class="text-gray-600 mt-2"><i class="mdi mdi-calendar"></i> {{ new
@@ -34,14 +52,14 @@
                         <Link :href="`/post/${post.id}`" class="text-blue-500 mt-4 inline-block">Read more</Link>
                     </div>
                 </swiper-slide>
-                ...
+
             </swiper>
         </div>
     </section>
 </template>
 
 <script setup>
-import { ref , inject } from 'vue'
+import { ref, inject } from 'vue'
 import { Link } from '@inertiajs/vue3';
 // Import Swiper styles
 import 'swiper/css';
@@ -53,9 +71,9 @@ import 'swiper/css/mousewheel';
 
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay , Mousewheel } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay, Mousewheel } from 'swiper/modules';
 const helpers = inject('helpers');
-const modules = [Navigation, Pagination, Scrollbar, A11y, Autoplay , Mousewheel];
+const modules = [Navigation, Pagination, Scrollbar, A11y, Autoplay, Mousewheel];
 defineProps({ Posts: Object })
 </script>
 

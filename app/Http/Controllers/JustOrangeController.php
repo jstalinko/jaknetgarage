@@ -19,9 +19,9 @@ class JustOrangeController extends Controller
     {
         $this->global['current_url'] = url()->current();
         $this->global['base_url'] = url('/');
-        $this->global['no_whatsapp'] = env('NO_WHATSAPP');
-        $this->global['wa_message'] = env('WA_MESSAGE');
         $this->global['settings'] = json_decode(file_get_contents(storage_path('app/settings.json')) ,true);
+        $this->global['no_whatsapp'] = $this->global['settings']['no_whatsapp'];
+        $this->global['wa_message'] = $this->global['settings']['wa_message'];
     }
     public function index(Request $request): \Inertia\Response
     {
@@ -99,9 +99,13 @@ class JustOrangeController extends Controller
 
     public function getPostDetail(Request $request): \Inertia\Response
     {
-        $props['post'] = Post::find($request->id);
+        $props['post'] = Post::where('slug',$request->slug)->first();
         $props['categories'] = Category::where('active',true)->get();
         $props['globals'] = $this->global;
+        $props['posts'] = Post::where('active',true)->get();
+
+
+        
 
         $data['props'] = $props;
         return Inertia::render('Posts/detail',$data);

@@ -4,14 +4,15 @@
         <JustHead :Global="props.global" :title="props.post.title" />
         <Navbar :Categories="props.Categories" />
         <br><br>
-        <div class="container mx-auto mt-10 w-8/12 min-h-screen border-2 rounded px-10 py-10">
-            <h1 class="text-3xl font-bold text-center md:text-left mb-4 poppins-bold"><i class="mdi mdi-newspaper"></i>
+        <div class="mt-10 container max-w-7xl mx-auto min-h-screen bg-gray-100 rounded-lg px-8 py-5">
+            <h1 class="text-4xl text-center poppins-bold underline mt-10 mb-4"><i class="mdi mdi-newspaper"></i>
                 {{ props.post.title }}</h1>
                 <img :src="helpers.imageUrl(props.post.image)"  :alt="props.post.title" class="object-cover justify-center rounded"/>
-            <div class="prose lg:prose-xl" v-html="props.post.content"></div>
+            <div class="mb-2 mt-5 prose lg:prose-xl" v-html="props.post.content"></div>
         </div>
 
-        <Footer/>
+        <Footer :Socmed="props.globals.settings.sosmed" :Pages="props.posts" :Global="props.globals"/>
+        
     </div>
 </template>
 

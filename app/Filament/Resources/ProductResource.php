@@ -29,18 +29,16 @@ class ProductResource extends Resource
                     ->required()->native(false),
                 Forms\Components\TextInput::make('name')
                     ->required(),
-                Forms\Components\Textarea::make('description')
+                Forms\Components\FileUpload::make('image')
+                ->image()
+                ->imageEditor()->columnSpanFull(),
+                Forms\Components\RichEditor::make('description')
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('$'),
-                Forms\Components\TextInput::make('slug')
-                    ->required(),
-                Forms\Components\TextInput::make('views')
-                    ->required()
-                    ->numeric(),
+                    ->prefix('Rp'),
                 Forms\Components\TextInput::make('shopee_url'),
                 Forms\Components\TextInput::make('tokopedia_url'),
                 Forms\Components\Toggle::make('active')
