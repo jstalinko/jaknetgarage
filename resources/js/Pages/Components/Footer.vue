@@ -15,7 +15,7 @@
 				<nav>
 					<h5 class="font-bold text-2xl text-slate-500 mb-8">Artikel</h5>
 					<ul class="flex flex-col gap-3">
-						<li v-for="(post,index) in Pages.slice(0,5)" :key="index"><Link :href="`/post/${post.id}`">{{ post.title }}</Link></li>
+						<li v-for="(post,index) in Pages.slice(0,5)" :key="index"><Link :href="`/post/${post.slug}`">{{ post.title }}</Link></li>
 						
 						
 					</ul>
