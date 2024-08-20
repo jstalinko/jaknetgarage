@@ -1,7 +1,7 @@
 <template>
 	<JustHead :Global="props.globals" />
 	<div>
-		<Navbar :Categories="props.categories" />
+		<Navbar :Categories="props.categories" :Settings="props.globals.settings" />
 
 		<div class="hidden md:block relative">
 			<section class="grid grid-cols-2 gap-4 ">

@@ -6,6 +6,7 @@
         <div class="relative w-full max-w-screen-md">
             <div class="text-center mb-8">
             <h1 class="text-4xl font-bold text-gray-600 poppins-bold animate-pulse">GTMOTOMINDS</h1>
+            
         </div>
         <div>
             <input
@@ -24,7 +25,8 @@
     </div>
     <header class="flex justify-between items-center p-3 px-4">
         <div class="flex items-center gap-2">
-            <span class="font-bold text-xl text-gray-700 poppins-bold">GTMOTOMINDS</span>
+            <span class="font-bold text-xl text-gray-700 poppins-bold" v-if="Settings.logo == null">GTMOTOMINDS</span>
+            <img :src="helpers.imageUrl(Settings.logo)" class="object-cover w-40" v-if="Settings.logo">
 
         </div>
 
@@ -117,14 +119,15 @@
 </template>
 
 <script setup>
-import { Link , router} from '@inertiajs/vue3';
-import {ref,onMounted,onBeforeUnmount,watch} from 'vue';
+import { Link , router ,} from '@inertiajs/vue3';
+import {ref,onMounted,onBeforeUnmount,inject} from 'vue';
 
-defineProps({Categories: Object});
+defineProps({Categories: Object , Settings: Object});
 
 const isOpen = ref(false);
 const searchOpen = ref(false);
 const query = ref('');
+const helpers = inject('helpers');
 
 const doSearch = async() => {
     if(query.value == '') return;

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Navbar :Categories="props.categories" />
+        <Navbar :Categories="props.categories" :Settings="props.globals.settings" />
 
         <PostPage :Posts="props.posts" />
 

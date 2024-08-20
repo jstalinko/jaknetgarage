@@ -1,7 +1,7 @@
 <template>
     <JustHead :Global="props.globals"/>
     <div>
-        <Navbar :Categories="props.categories" />
+        <Navbar :Categories="props.categories" :Settings="props.globals.settings" />
         <br><br>
         <ProductPage :Products="props.products"  :Filter="props.filter" :HeadTitle="HeadTitle" :Global="props.globals" :FilterQuery="props.filter_query"  />
         

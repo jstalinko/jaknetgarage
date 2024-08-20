@@ -1,7 +1,7 @@
 <template>
     <div>
         <JustHead :Global="props.globals" :title="props.product.name" />
-        <Navbar :Categories="props.categories" />
+        <Navbar :Categories="props.categories" :Settings="props.globals.settings" />
 
         <div class="container mx-auto mt-10">
             <br>

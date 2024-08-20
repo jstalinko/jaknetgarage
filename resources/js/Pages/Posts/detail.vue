@@ -2,7 +2,7 @@
 
     <div>
         <JustHead :Global="props.global" :title="props.post.title" />
-        <Navbar :Categories="props.Categories" />
+        <Navbar :Categories="props.categories" :Settings="props.globals.settings" />
         <br><br>
         <div class="mt-10 container max-w-7xl mx-auto min-h-screen bg-gray-100 rounded-lg px-8 py-5">
             <h1 class="text-4xl text-center poppins-bold underline mt-10 mb-4"><i class="mdi mdi-newspaper"></i>
