@@ -32,7 +32,7 @@
                                 <img class="w-full rounded-t-lg" :src="helpers.imageUrl(product.image)"
                                     :alt="product.name" />
                                 <div
-                                    class="flex flex-col gap-2 text-gray-600 bg-[#FFCC4C] p-5 rounded-b-lg hover:shadow-lg">
+                                    class="flex flex-col gap-2 text-gray-100 bg-[#FF0000] p-5 rounded-b-lg hover:shadow-lg">
                                     <Link :href="'/product/' + product.slug">
                                     <h4 class="font-bold hover:underline">{{ product.name }}</h4>
                                     </Link>
@@ -43,7 +43,7 @@
                                         <span class="text-sm mt-2"><i class="mdi mdi-tag"></i> {{
                                             product.category.name }}</span>
                                     </div>
-                                    <a class="bg-amber-500 px-8 py-2 rounded-lg text-white font-bold text-center hover:bg-amber-700 uppercase"
+                                    <a class="bg-red-500 px-8 py-2 rounded-lg text-white font-bold text-center hover:bg-red-700 uppercase"
                                         :href="helpers.WaButton(props.globals,'/product/'+product.slug)"><i class="mdi mdi-whatsapp"></i> PESAN</a>
                                 </div>
                             </div>
@@ -56,22 +56,22 @@
                     <h1 class="text-3xl font-bold text-center md:text-left mb-4 poppins-bold"><i
                             class="mdi mdi-cart-heart"></i> {{ props.product.name }}</h1>
                     <div class="flex flex-col md:flex-row justify-between items-center mt-4">
-                        <span class="text-sm md:text-xl font-semibold border-2 p-2 rounded-full border-amber-400 mb-2">{{ props.product.price
+                        <span class="text-sm md:text-xl font-semibold border-2 p-2 rounded-full border-red-400 mb-2">{{ props.product.price
                             == 0 ? 'Tanya Admin' : helpers.rupiah(props.product.price) }}</span>
-                        <span class="text-md text-gray-500 border-2 p-2 rounded-full border-amber-400 mb-2"><i
+                        <span class="text-md text-gray-500 border-2 p-2 rounded-full border-red-400 mb-2"><i
                                 class="mdi mdi-tag"></i> {{ props.product.category.name }}</span>
-                        <span class="text-sm text-gray-500 border-2 p-2 rounded-full border-amber-400 mb-2"><i
+                        <span class="text-sm text-gray-500 border-2 p-2 rounded-full border-red-400 mb-2"><i
                                 class="mdi mdi-eye-outline"></i> {{ props.product.views }}x dilihat</span>
                     </div>
                     <!-- <button
-                        class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded block w-full mt-4">
+                        class="bg-red-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded block w-full mt-4">
                         <i class="mdi mdi-whatsapp"></i> Pesan Sekarang
                     </button> -->
                     <div class="text-gray-600 text-center md:text-left px-4 mt-5">
                         <div class="prose lg:prose-xl" v-html="props.product.description"></div>
                     </div>
                     <a
-                        class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-full block w-full mt-4 uppercase text-center" :href="helpers.WaButton(props.globals,'/product/'+props.product.slug)" target="_blank" >
+                        class="bg-red-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-full block w-full mt-4 uppercase text-center" :href="helpers.WaButton(props.globals,'/product/'+props.product.slug)" target="_blank" >
                         <i class="mdi mdi-whatsapp"></i> PESAN </a>
                         <a
                         class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full block w-full mt-4 uppercase text-center" :href="props.product.shopee_url" target="_blank" >
@@ -88,7 +88,7 @@
                                 <img class="w-full rounded-t-lg" :src="helpers.imageUrl(product.image)"
                                     :alt="product.name" />
                                 <div
-                                    class="flex flex-col gap-2 text-gray-600 bg-[#FFCC4C] p-5 rounded-b-lg hover:shadow-lg">
+                                    class="flex flex-col gap-2 text-gray-600 bg-[#FF0000] p-5 rounded-b-lg hover:shadow-lg">
                                     <Link :href="'/product/' + product.slug">
                                     <h4 class="font-bold hover:underline">{{ product.name }}</h4>
                                     </Link>
@@ -99,7 +99,7 @@
                                         <span class="text-sm mt-2"><i class="mdi mdi-tag"></i> {{
                                             product.category.name }}</span>
                                     </div>
-                                    <a class="bg-amber-500 px-8 py-2 rounded-lg text-white font-bold text-center hover:bg-amber-700 uppercase"
+                                    <a class="bg-red-500 px-8 py-2 rounded-lg text-white font-bold text-center hover:bg-amber-700 uppercase"
                                         :href="helpers.WaButton(props.globals,'/product/'+product.slug)"><i class="mdi mdi-whatsapp"></i> PESAN</a>
                                 </div>
                             </div>

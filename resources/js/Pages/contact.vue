@@ -19,40 +19,40 @@
                     <div class="mb-6">
                         <label for="nama" class="block text-gray-700 font-semibold mb-2">Nama Lengkap</label>
                         <input type="text" id="nama"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                             placeholder="Masukkan nama lengkap" v-model="formData.nama" />
                     </div>
 
                     <div class="mb-6">
                         <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
                         <input type="email" id="email"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                             placeholder="Masukkan email" v-model="formData.email" />
                     </div>
 
                     <div class="mb-6">
                         <label for="whatsapp" class="block text-gray-700 font-semibold mb-2">No WhatsApp</label>
                         <input type="text" id="whatsapp"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                             placeholder="Masukkan no WhatsApp" v-model="formData.whatsapp" />
                     </div>
                     <div class="mb-6">
                         <label for="judul" class="block text-gray-700 font-semibold mb-2">Judul</label>
                         <input type="text" id="judul"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                             placeholder="Masukkan Judul" v-model="formData.judul" />
                     </div>
 
                     <div class="mb-6">
                         <label for="pesan" class="block text-gray-700 font-semibold mb-2">Pesan</label>
                         <textarea id="pesan" rows="5"
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                             placeholder="Tulis pesan Anda" v-model="formData.pesan"></textarea>
                     </div>
 
                     <div class="text-center">
                         <button type="submit"
-                            class="bg-amber-500 text-white px-6 py-2 rounded-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-amber-500">Kirim</button>
+                            class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-red-500">Kirim</button>
                     </div>
                 </form>
 

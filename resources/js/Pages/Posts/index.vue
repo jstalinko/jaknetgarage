@@ -10,7 +10,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup >
 import Navbar from '../Components/Navbar.vue';
 import PostPage from '../Components/PostPage.vue';
 import Footer from '../Components/Footer.vue';

@@ -8,7 +8,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div v-for="service in Services" :key="service.id"
-                    class="bg-white rounded-lg  overflow-hidden flex flex-col items-center p-4 border-2 border-amber-500 hover:bg-gray-100 hover:cursor-pointer hover:shadow-lg hover:animate-pulse">
+                    class="bg-white rounded-lg  overflow-hidden flex flex-col items-center p-4 border-2 border-red-500 hover:bg-gray-100 hover:cursor-pointer hover:shadow-lg hover:animate-pulse">
                     <div class="w-16 h-16 mb-4 flex justify-center items-center">
                         <span :class="`mdi mdi-${service.icon} text-4xl`"></span>
                     </div>

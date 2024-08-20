@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    <url>
+        <loc>http://localhost/product?cat=1&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=2&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=3&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=4&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=5&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=6&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=7&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=8&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=9&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=10&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=11&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=12&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=13&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=14&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=15&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=16&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=17&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=18&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=19&amp;filter=category</loc>
+    
+            </url>
+    <url>
+        <loc>http://localhost/product?cat=20&amp;filter=category</loc>
+    
+            </url>
+</urlset>

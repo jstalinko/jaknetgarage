@@ -1,6 +1,6 @@
 <template>
     <div class="hidden md:block">
-        <footer class="flex flex-col border-t-2 bg-gradient-to-b from-amber-400 via-amber-100 to-white">
+        <footer class="flex flex-col border-t-2 bg-gradient-to-b from-red-500 via-red-100 to-white">
 			<div
 				class="flex justify-between gap-10 py-20 px-64 bg-primary bg-[url('/assets/images/dots.png')] bg-cover">
 				<nav>
@@ -49,7 +49,7 @@
 
 			<div class="bg-white flex justify-center gap-4 py-3 font-bold text-xs">
 				
-				<span>GTMOTOMINDS &copy; {{new Date().getFullYear()}} All rights reserved.</span>| <a href="{{url('sitemap.xml')}}">Sitemap</a>
+				<span>GTMOTOMINDS &copy; {{new Date().getFullYear()}} All rights reserved.</span>| <a href="/sitemap.xml">Sitemap</a>
 			</div>
 		</footer>
     </div>

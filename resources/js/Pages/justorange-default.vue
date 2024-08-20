@@ -11,7 +11,7 @@
 				<div class="flex flex-col items-center">
 					<h1 class="text-8xl font-bold w-2/3 mb-5 poppins-bold animate-pulse">
 						 <span class="text-gray-600">GTMOTO</span>
-                         <span class="text-amber-600">MINDS</span>
+                         <span class="text-red-600">MINDS</span>
 					</h1>
 
 					<p class="text-secondary w-3/4 text-lg text-left p-2">
@@ -22,7 +22,7 @@
 
 
 					<div class="mt-5 px-32"><br>
-					<Link href="/product" class="bg-amber-400 p-3 rounded text-gray-600 hover:bg-amber-600 mt-5">Belanja sekarang!</Link>
+					<Link href="/product" class="bg-red-400 p-3 rounded text-gray-600 hover:bg-red-600 mt-5">Belanja sekarang!</Link>
 					</div>
 					
 				</div>

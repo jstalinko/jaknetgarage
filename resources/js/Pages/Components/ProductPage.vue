@@ -7,31 +7,31 @@
 
       <div class="flex flex-col flex-wrap md:flex-row justify-between mb-10 mt-5">
     <div class="flex flex-wrap gap-1 justify-start">
-        <Link href="?filter=all" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        <Link href="?filter=all" class="bg-red-400 hover:bg-red-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-view-list"></i> Semua Produk
         </Link>
-        <Link href="?filter=new" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        <Link href="?filter=new" class="bg-red-400 hover:bg-red-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-moon-new"></i> Terbaru
         </Link>
-        <Link href="?filter=populer" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        <Link href="?filter=populer" class="bg-red-400 hover:bg-red-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-star-box"></i> Terpopuler
         </Link>
     </div>
     <div class="flex justify-end">
-        <Link v-show="Filter == 'desc_harga'" href="?filter=asc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        <Link v-show="Filter == 'desc_harga'" href="?filter=asc_harga" class="bg-red-400 hover:bg-red-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-sort-descending"></i> Harga
         </Link>
-        <Link v-show="Filter == 'asc_harga'" href="?filter=desc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        <Link v-show="Filter == 'asc_harga'" href="?filter=desc_harga" class="bg-red-400 hover:bg-red-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-sort-ascending"></i> Harga
         </Link>
-        <Link v-show="Filter !== 'asc_harga' && Filter !== 'desc_harga'" href="?filter=desc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        <Link v-show="Filter !== 'asc_harga' && Filter !== 'desc_harga'" href="?filter=desc_harga" class="bg-red-400 hover:bg-red-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-sort"></i> Harga
         </Link>
     </div>
 </div>
 
 
-      <div class="bg-amber-400 m-5 p-3 rounded text-gray-600 flex justify-between" v-show="Filter !== null">
+      <div class="bg-red-400 m-5 p-3 rounded text-gray-600 flex justify-between" v-show="Filter !== null">
        <div v-if="Filter != 'search'">
         <span class="font-thin underline">Filter </span> : 
         <span class="font-bold" v-if="Filter == 'all'">Semua Produk</span>
@@ -56,14 +56,14 @@
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mb-10">
         <div class="rounded-lg " v-for="(product, index) in Products" :key="index">
           <img class="w-full rounded-t-lg" :src="helpers.imageUrl(product.image)" :alt="product.name" />
-          <div class="flex flex-col gap-2 text-gray-600 bg-[#FFCC4C] p-5 rounded-b-lg hover:shadow-lg">
+          <div class="flex flex-col gap-2 text-gray-100 bg-[#FF0000] p-5 rounded-b-lg hover:shadow-lg">
             <Link :href="'/product/' + product.slug"><h4 class="font-bold hover:underline">{{ product.name }}</h4></Link>
            
             <div class="flex flex-col md:flex-row md:justify-between">
               <b class="text-sm mt-2">{{ product.price == 0 ? 'Tanya Admin' : helpers.rupiah(product.price) }}</b>
               <span class="text-sm mt-2"><i class="mdi mdi-tag"></i> {{ product.category?.name ?? 'Tidak ada kategori' }}</span>
             </div>
-            <a :href="helpers.WaButton(Global,'/product/'+product.slug)" class="bg-amber-500 px-8 py-2 rounded-full text-gray-600 font-bold text-center hover:bg-amber-600 hover:text-white uppercase text-xs md:text-lg" target="_blank"><i class="mdi mdi-whatsapp"></i> Pesan </a>
+            <a :href="helpers.WaButton(Global,'/product/'+product.slug)" class="bg-red-400 px-8 py-2 rounded-full text-gray-200 font-bold text-center hover:bg-red-600 hover:text-white uppercase text-xs md:text-lg" target="_blank"><i class="mdi mdi-whatsapp"></i> Pesan </a>
 
          <div class="flex items-center flex-col md:justify-between md:flex-row gap-1">
           <a :href="product.shopee_url" class="bg-yellow-500 px-8 py-2 rounded-full text-gray-100 font-bold text-center hover:bg-yellow-600 hover:text-white uppercase text-xs md:text-lg" target="_blank">SHOPEE</a>
