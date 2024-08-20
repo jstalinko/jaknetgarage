@@ -20,7 +20,8 @@ class Product extends Model
         'views',
         'shopee_url',
         'tokopedia_url',
-        'active'
+        'active',
+        'image'
     ];
 
     public function category(): BelongsTo
