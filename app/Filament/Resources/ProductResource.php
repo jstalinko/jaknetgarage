@@ -6,6 +6,7 @@ use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Product;
 use Filament\Forms;
+use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,6 +28,7 @@ class ProductResource extends Resource
             ->schema([
                 Forms\Components\Select::make('category_id')->relationship('category','name')
                     ->required()->native(false),
+                Forms\Components\TextInput::make('code'),
                 Forms\Components\TextInput::make('name')
                     ->required(),
                 Forms\Components\FileUpload::make('image')
@@ -51,7 +53,8 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('category.name')
-                    ->sortable()->badge(),
+                    ->sortable()->badge()->searchable(),
+                Tables\Columns\TextColumn::make('code')->badge()->searchable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')

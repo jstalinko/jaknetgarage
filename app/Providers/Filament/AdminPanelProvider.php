@@ -22,7 +22,7 @@ class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
-        return $panel
+        $panels= $panel
             ->default()
             ->id('admin')
             ->path('admin')
@@ -57,6 +57,15 @@ class AdminPanelProvider extends PanelProvider
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
             ])->spa()
             ->profile();
+
+            if(request()->is('admin/cashier'))
+            {
+                $panels = $panels->topNavigation();
+            }else{
+                $panels = $panels->sidebarCollapsibleOnDesktop();
+            }
+
+            return $panel;
     
     }
 }
