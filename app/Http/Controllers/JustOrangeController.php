@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\Category;
+use App\Models\EventRegister;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -132,6 +133,82 @@ class JustOrangeController extends Controller
         $contact->title = $req['judul'];
         $contact->message = $req['pesan'];
         $contact->save();
+
+        return response()->json(['success' => true], 200, [], JSON_PRETTY_PRINT);
+    }
+
+    public function formRegister(Request $request)
+    {
+
+        $props['post'] = Post::where('slug', $request->slug)->first();
+        $props['categories'] = Category::where('active', true)->get();
+        $props['globals'] = $this->global;
+        $props['posts'] = Post::where('active', true)->get();
+
+
+
+        $data['props'] = $props;
+        return Inertia::render('FormRegister', $data);
+    }
+    public function submitRegister(Request $request): JsonResponse
+    {
+        $req = $request->json()->all();
+        $apikey = 'e8026508a349a3c291a02d516b479b5c21779d9d';
+        $account = '172589054201386bd6d8e091c2ab4c7c7de644d37b66deffee866af';
+        $phone = $req['whatsapp'];
+        $phone = preg_replace('/\D+/', '', $phone);
+
+        // Change phone number starting with 08 to 628
+        if (preg_match('/^08/', $phone)) {
+            $phone = preg_replace('/^08/', '628', $phone);
+        }
+
+        $message = 
+"
+🙏 Terima Kasih Sudah Registrasi! 🙏
+
+Halo ".$req['nama']."! Terima kasih telah mendaftar di perlombaan Video Competition GTMotoMinds. Data Anda telah kami terima dengan detail sebagai berikut:
+
+Nama: ".$req['nama']."\n
+Alamat: ".$req['alamat']."\n
+Instagram : ".$req['instagram']."\n
+No. Whatsapp : ".$req['whatsapp']."\n
+Kami sangat senang Anda bergabung dalam kompetisi ini! Jangan lupa untuk memberikan yang terbaik dalam video Anda. Semoga sukses dan sampai jumpa di ajang perlombaan! 🏆
+\n\n
+Salam,
+Tim GTMotoMinds
+Silakan lanjut kontak https://wa.me/6287878060008 (EDI) untuk informasi lebih lanjut.
+";
+       
+
+
+        $events = EventRegister::updateOrCreate([
+            'whatsapp' => $req['whatsapp'], 
+            'instagram' => $req['instagram']
+            ],
+            [
+                'name' => $req['nama'] , 
+                'address' => $req['alamat'] ]
+        );
+
+        if($events)
+        {
+            $chat = [
+                "secret" => $apikey, // your API secret from (Tools -> API Keys) page
+                "account" => $account,
+                "recipient" => $phone,
+                "type" => "text",
+                "message" => $message
+            ];
+    
+            $cURL = curl_init("https://piwapi.com/api/send/whatsapp");
+            curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($cURL, CURLOPT_POSTFIELDS, $chat);
+            $response = curl_exec($cURL);
+            curl_close($cURL);
+    
+            $result = json_decode($response, true);
+        }
 
         return response()->json(['success' => true], 200, [], JSON_PRETTY_PRINT);
     }

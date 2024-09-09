@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\CashierController;
 use App\Http\Controllers\JustOrangeController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +27,7 @@ Route::group(['prefix' => '/post'] , function(){
 });
 Route::get('/about' , [JustOrangeController::class , 'getAbout'])->name('about');
 Route::get('/contact' , [JustOrangeController::class , 'getContact'])->name('contact');
+
+Route::get('/cashier', [CashierController::class , 'index']);
+
+Route::get('/form-register',[JustOrangeController::class , 'formRegister']);

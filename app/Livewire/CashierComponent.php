@@ -17,12 +17,13 @@ class CashierComponent extends Component implements HasForms
     public $code;
     public $product;
     public $price;
-    public $quantity = 1;
+    public $quantity = 0;
     public $subtotal;
     public $discount = 0;
     public $total = 0;
     public $products = [];
     public $addProducts= [];
+    public $product_id;
 
     public function render()
     {
@@ -60,7 +61,9 @@ class CashierComponent extends Component implements HasForms
                         ->label('Select Product')
                         ->options(fn() => collect(Product::where('active', 1)->get())->pluck('name', 'id'))
                         ->searchable()
-                        ->required(),
+                        ->required()
+                        ->reactive()
+                        ->afterStateUpdated(fn($state,$set) => $this->product_id = $state),
 
                     Forms\Components\TextInput::make('quantity')
                         ->label('Quantity')
@@ -69,9 +72,16 @@ class CashierComponent extends Component implements HasForms
                         ->required()
                         ->live()
                         ->afterStateUpdated(function($state, callable $set){
-                            $this->addProduct();
-                            $this->updatePrice();
-                            $this->calculateSubtotal();
+                            $product = $this->getProductId($this->product_id);
+                            $productPrice = ceil($product?->price * $state); // sub total harga produk x qty.
+                            $this->addProducts[] = [
+                                'name' => $product->name,
+                                'qty' => $state,
+                                'subtotal' => $productPrice
+                            ];
+                            $this->updateKeyValue();
+                            $this->resetForm();
+
                         }),
 
                   
@@ -107,6 +117,19 @@ class CashierComponent extends Component implements HasForms
                 ])->columnSpan(1), // Right side will get one-third of the space
             ]),
         ]);
+    }
+
+    public function getProductId($id)
+    {
+        $product = Product::find($id);
+        if(!$product)
+        {
+            Notification::make('error')->title('Not Found')->body('Produk tidak tersedia')->danger()->send();
+            return (Object)[];
+        }else{
+
+            return $product;
+        }
     }
 
     public function updatePrice()
@@ -154,7 +177,7 @@ class CashierComponent extends Component implements HasForms
         // You can customize how products are shown in the KeyValue
       //  dd($this->products);
         $this->products = collect($this->addProducts)->mapWithKeys(function ($product) {
-            return [$product['name'] => 'Quantity: ' . $product['quantity'] . ', Subtotal: ' . $product['subtotal']];
+            return [$product['name'] => 'Quantity: ' . $product['qty'] . ', Subtotal: ' . $product['subtotal']];
         })->toArray();
     }
 
