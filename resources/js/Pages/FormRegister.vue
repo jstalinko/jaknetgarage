@@ -7,8 +7,7 @@
         />
         <br /><br />
         <div
-            class="mt-10 container max-w-7xl mx-auto min-h-screen bg-gray-100 rounded-lg px-8 py-5"
-        >
+            class="mt-10 container max-w-7xl mx-auto min-h-screen bg-gray-100 rounded-lg px-8 py-5 mb-10">
             <h1 class="text-4xl text-center poppins-bold underline mt-10">
                 Formulir Pendaftaran
             </h1>
